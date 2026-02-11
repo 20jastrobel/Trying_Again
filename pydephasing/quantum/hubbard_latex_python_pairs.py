@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import inspect
 import itertools
-import re
-from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, Union
 
 try:
@@ -20,7 +18,6 @@ try:
         fermion_plus_operator,
     )
     from pydephasing.quantum.pauli_words import PauliTerm
-    from pydephasing.utilities.log import log
 except Exception as _dep_exc:  # pragma: no cover - allow source-inspection usage without full deps
     PauliPolynomial = Any  # type: ignore[assignment]
 
@@ -40,32 +37,78 @@ except Exception as _dep_exc:  # pragma: no cover - allow source-inspection usag
 
     log = _FallbackLog()
 
+try:
+    from pydephasing.utilities.log import log
+except Exception:  # pragma: no cover - local fallback when utilities package is absent
+    class _FallbackLog:
+        @staticmethod
+        def error(msg: str):
+            raise RuntimeError(msg)
+
+    log = _FallbackLog()
+
 Spin = int  # 0 -> up, 1 -> down
 Dims = Union[int, Tuple[int, ...]]  # L or (Lx, Ly, ...)
 
 SPIN_UP: Spin = 0
 SPIN_DN: Spin = 1
 
-BASE_DIR = Path(__file__).resolve().parent
-LATEX_DIR = BASE_DIR / "latex_terms"
+LATEX_TERMS: Dict[str, Dict[str, str]] = {
+    "t_term": {
+        "title": "T Term",
+        "latex": (
+            r"H_t = -t\sum_{i,j}\sum_{\sigma\in\{\uparrow,\downarrow\}}"
+            r"\left("
+            r"\hat{c}_{i\sigma}^{\dagger}\hat{c}_{j\sigma}"
+            r"+"
+            r"\hat{c}_{j\sigma}^{\dagger}\hat{c}_{i\sigma}"
+            r"\right)"
+        ),
+    },
+    "u_term": {
+        "title": "U Term",
+        "latex": r"H_U = U\sum_i \hat{n}_{i\uparrow}\hat{n}_{i\downarrow}",
+    },
+    "number_term": {
+        "title": "Number Term",
+        "latex": (
+            r"H_v = -\sum_i\sum_{\sigma\in\{\uparrow,\downarrow\}} v_i\,\hat{n}_{i\sigma},"
+            r"\qquad"
+            r"\hat{n}_{i\sigma} := \hat{c}_{i\sigma}^{\dagger}\hat{c}_{i\sigma}"
+        ),
+    },
+}
 
-T_TERM_MD = LATEX_DIR / "t_term.md"
-U_TERM_MD = LATEX_DIR / "u_term.md"
-NUMBER_TERM_MD = LATEX_DIR / "number_term.md"
 
-
-def mode_index(site: int, spin: Spin, indexing: str = "interleaved") -> int:
+def mode_index(
+    site: int,
+    spin: Spin,
+    indexing: str = "interleaved",
+    n_sites: Optional[int] = None,
+) -> int:
     """
-    Interleaved spin-orbital indexing (0-based site):
-      p(site, spin) = 2*site + spin, spin in {0 (up), 1 (down)}.
+    Spin-orbital indexing (0-based site), spin in {0 (up), 1 (down)}:
+
+    - interleaved: p(site, spin) = 2*site + spin
+    - blocked:     (up block first) p(site, up)=site, p(site, dn)=n_sites+site
     """
-    if indexing != "interleaved":
-        log.error("only indexing='interleaved' is implemented")
     if spin not in (SPIN_UP, SPIN_DN):
         log.error("spin must be 0 (up) or 1 (down)")
     if site < 0:
         log.error("site must be >= 0")
-    return 2 * int(site) + int(spin)
+
+    if indexing == "interleaved":
+        return 2 * int(site) + int(spin)
+    if indexing == "blocked":
+        if n_sites is None:
+            log.error("n_sites is required when indexing='blocked'")
+        n_sites_i = int(n_sites)
+        if site >= n_sites_i:
+            log.error("site index out of range for blocked indexing")
+        return int(site) if spin == SPIN_UP else n_sites_i + int(site)
+
+    log.error("indexing must be either 'interleaved' or 'blocked'")
+    return -1  # unreachable
 
 
 def _prod(vals: Sequence[int]) -> int:
@@ -212,8 +255,8 @@ def build_hubbard_kinetic(
 
     for (i, j) in edges:
         for spin in (SPIN_UP, SPIN_DN):
-            pi = mode_index(i, spin, indexing=indexing)
-            pj = mode_index(j, spin, indexing=indexing)
+            pi = mode_index(i, spin, indexing=indexing, n_sites=n_sites)
+            pj = mode_index(j, spin, indexing=indexing, n_sites=n_sites)
             Ht += (-t) * ((cd(pi) * cm(pj)) + (cd(pj) * cm(pi)))
 
     return Ht
@@ -240,8 +283,8 @@ def build_hubbard_onsite(
     HU = PauliPolynomial(repr_mode)
 
     for i in range(n_sites):
-        p_up = mode_index(i, SPIN_UP, indexing=indexing)
-        p_dn = mode_index(i, SPIN_DN, indexing=indexing)
+        p_up = mode_index(i, SPIN_UP, indexing=indexing, n_sites=n_sites)
+        p_dn = mode_index(i, SPIN_DN, indexing=indexing, n_sites=n_sites)
         HU += U * (n_op(p_up) * n_op(p_dn))
 
     return HU
@@ -293,7 +336,7 @@ def build_hubbard_potential(
         if abs(vi) < 1e-15:
             continue
         for spin in (SPIN_UP, SPIN_DN):
-            p_mode = mode_index(i, spin, indexing=indexing)
+            p_mode = mode_index(i, spin, indexing=indexing, n_sites=n_sites)
             Hv += (-vi) * n_op(p_mode)
 
     return Hv
@@ -334,29 +377,7 @@ def build_hubbard_hamiltonian(
     return Ht + HU + Hv
 
 
-def _extract_title(markdown_text: str) -> str | None:
-    for line in markdown_text.splitlines():
-        line = line.strip()
-        if line.startswith("#"):
-            return line.lstrip("#").strip()
-    return None
-
-
-def _extract_latex(markdown_text: str) -> str:
-    block_match = re.search(r"\$\$(.*?)\$\$", markdown_text, flags=re.DOTALL)
-    if block_match:
-        return block_match.group(1).strip()
-    inline_match = re.search(r"\$(.*?)\$", markdown_text, flags=re.DOTALL)
-    if inline_match:
-        return inline_match.group(1).strip()
-    return markdown_text.strip()
-
-
-def show_latex_and_code_from_markdown(markdown_path: Path, fn) -> None:
-    markdown_text = markdown_path.read_text()
-    title = _extract_title(markdown_text)
-    latex_expr = _extract_latex(markdown_text)
-
+def show_latex_and_code(title: str, latex_expr: str, fn) -> None:
     if display is not None and Math is not None:
         if title:
             display(Markdown(f"### {title}"))
@@ -370,10 +391,22 @@ def show_latex_and_code_from_markdown(markdown_path: Path, fn) -> None:
 
 
 def show_hubbard_latex_python_pairs() -> None:
-    """Render LaTeX terms from markdown and print corresponding Python implementations."""
-    show_latex_and_code_from_markdown(T_TERM_MD, build_hubbard_kinetic)
-    show_latex_and_code_from_markdown(U_TERM_MD, build_hubbard_onsite)
-    show_latex_and_code_from_markdown(NUMBER_TERM_MD, build_hubbard_potential)
+    """Render built-in LaTeX terms and print corresponding Python implementations."""
+    show_latex_and_code(
+        LATEX_TERMS["t_term"]["title"],
+        LATEX_TERMS["t_term"]["latex"],
+        build_hubbard_kinetic,
+    )
+    show_latex_and_code(
+        LATEX_TERMS["u_term"]["title"],
+        LATEX_TERMS["u_term"]["latex"],
+        build_hubbard_onsite,
+    )
+    show_latex_and_code(
+        LATEX_TERMS["number_term"]["title"],
+        LATEX_TERMS["number_term"]["latex"],
+        build_hubbard_potential,
+    )
 
 
 if __name__ == "__main__":

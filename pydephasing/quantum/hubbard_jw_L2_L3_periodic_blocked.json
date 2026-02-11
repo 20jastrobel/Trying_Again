@@ -1,0 +1,145 @@
+{
+  "cases": {
+    "L=2": {
+      "metadata": {
+        "L": 2,
+        "U": 4.0,
+        "boundary_condition": "periodic",
+        "coefficient_tolerance": 1e-12,
+        "constant_shift_identity": 2.0,
+        "edge_set": [
+          [
+            0,
+            1
+          ]
+        ],
+        "indexing": {
+          "name": "blocked",
+          "pauli_string_qubit_order": "left_to_right = q_(n-1) ... q_0",
+          "spin_orbital_order_before_jw": [
+            "alpha0",
+            "alpha1",
+            "beta0",
+            "beta1"
+          ]
+        },
+        "num_pauli_terms": 11,
+        "num_qubits": 4,
+        "particle_sector": {
+          "balanced_spin_sectors_for_comparison": [
+            [
+              1,
+              1
+            ]
+          ],
+          "constraint": "N_alpha + N_beta = L",
+          "filling": "half",
+          "total_particles": 2
+        },
+        "t": 1.0
+      },
+      "pauli_terms": {
+        "IIII": 2.0,
+        "IIIZ": -1.0,
+        "IIXX": -0.5,
+        "IIYY": -0.5,
+        "IIZI": -1.0,
+        "IZII": -1.0,
+        "IZIZ": 1.0,
+        "XXII": -0.5,
+        "YYII": -0.5,
+        "ZIII": -1.0,
+        "ZIZI": 1.0
+      }
+    },
+    "L=3": {
+      "metadata": {
+        "L": 3,
+        "U": 4.0,
+        "boundary_condition": "periodic",
+        "coefficient_tolerance": 1e-12,
+        "constant_shift_identity": 3.0,
+        "edge_set": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "indexing": {
+          "name": "blocked",
+          "pauli_string_qubit_order": "left_to_right = q_(n-1) ... q_0",
+          "spin_orbital_order_before_jw": [
+            "alpha0",
+            "alpha1",
+            "alpha2",
+            "beta0",
+            "beta1",
+            "beta2"
+          ]
+        },
+        "num_pauli_terms": 22,
+        "num_qubits": 6,
+        "particle_sector": {
+          "balanced_spin_sectors_for_comparison": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "constraint": "N_alpha + N_beta = L",
+          "filling": "half",
+          "total_particles": 3
+        },
+        "t": 1.0
+      },
+      "pauli_terms": {
+        "IIIIII": 3.0,
+        "IIIIIZ": -1.0,
+        "IIIIXX": -0.5,
+        "IIIIYY": -0.5,
+        "IIIIZI": -1.0,
+        "IIIXXI": -0.5,
+        "IIIXZX": -0.5,
+        "IIIYYI": -0.5,
+        "IIIYZY": -0.5,
+        "IIIZII": -1.0,
+        "IIZIII": -1.0,
+        "IIZIIZ": 1.0,
+        "IXXIII": -0.5,
+        "IYYIII": -0.5,
+        "IZIIII": -1.0,
+        "IZIIZI": 1.0,
+        "XXIIII": -0.5,
+        "XZXIII": -0.5,
+        "YYIIII": -0.5,
+        "YZYIII": -0.5,
+        "ZIIIII": -1.0,
+        "ZIIZII": 1.0
+      }
+    }
+  },
+  "description": "1D Fermi-Hubbard JW Hamiltonians",
+  "parameters": {
+    "U": 4.0,
+    "boundary_condition": "periodic",
+    "coefficient_tolerance": 1e-12,
+    "indexing": "blocked",
+    "lattice_sizes": [
+      2,
+      3
+    ],
+    "t": 1.0
+  }
+}

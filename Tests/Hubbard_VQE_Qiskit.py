@@ -26,6 +26,8 @@ from qiskit_nature.second_q.hamiltonians.lattices import BoundaryCondition, Line
 from qiskit_nature.second_q.mappers import JordanWignerMapper
 from qiskit_nature.second_q.operators import FermionicOp
 
+DEFAULT_SPIN_ORBITAL_ORDERING = "blocked"
+
 
 @dataclass
 class HubbardVQEResult:
@@ -37,6 +39,7 @@ class HubbardVQEResult:
     vqe_energy: float
     exact_filtered_energy: float
     best_restart: int
+    spin_orbital_ordering: str
     uccsd_reps: int
     uccsd_num_parameters: int
 
@@ -45,6 +48,20 @@ def _interleaved_to_blocked_permutation(num_sites: int) -> list[int]:
     """Map site-interleaved spin ordering (a1,b1,a2,b2,...) to blocked ordering."""
 
     return [index for site in range(num_sites) for index in (site, num_sites + site)]
+
+
+def _apply_spin_orbital_ordering(fermionic_op, num_sites: int, ordering: str):
+    """Return a fermionic operator in the requested spin-orbital ordering."""
+
+    normalized_ordering = ordering.strip().lower()
+    if normalized_ordering == "blocked":
+        return fermionic_op.permute_indices(_interleaved_to_blocked_permutation(num_sites))
+    if normalized_ordering == "interleaved":
+        return fermionic_op
+
+    raise ValueError(
+        f"Unsupported spin_orbital_ordering='{ordering}'. Use 'blocked' or 'interleaved'."
+    )
 
 
 def _half_filled_num_particles(num_sites: int) -> tuple[int, int]:
@@ -58,6 +75,7 @@ def _build_qubit_hamiltonian(
     hopping_t: float,
     onsite_u: float,
     mapper: JordanWignerMapper,
+    spin_orbital_ordering: str = DEFAULT_SPIN_ORBITAL_ORDERING,
 ):
     """Build and map the Fermi-Hubbard Hamiltonian to qubits."""
 
@@ -65,23 +83,42 @@ def _build_qubit_hamiltonian(
         num_nodes=num_sites,
         edge_parameter=-hopping_t,
         onsite_parameter=0.0,
-        boundary_condition=BoundaryCondition.OPEN,
+        boundary_condition=BoundaryCondition.PERIODIC,
     )
     fermionic_op = FermiHubbardModel(lattice=lattice, onsite_interaction=onsite_u).second_q_op()
-    fermionic_op = fermionic_op.permute_indices(_interleaved_to_blocked_permutation(num_sites))
+    fermionic_op = _apply_spin_orbital_ordering(fermionic_op, num_sites, spin_orbital_ordering)
     return mapper.map(fermionic_op)
 
 
-def _build_number_aux_ops(num_sites: int, mapper: JordanWignerMapper) -> dict[str, object]:
+def _spin_orbital_index_sets(num_sites: int, ordering: str) -> tuple[list[int], list[int]]:
+    """Return alpha/beta index sets for the selected spin-orbital ordering."""
+
+    normalized_ordering = ordering.strip().lower()
+    if normalized_ordering == "blocked":
+        return list(range(num_sites)), list(range(num_sites, 2 * num_sites))
+    if normalized_ordering == "interleaved":
+        return list(range(0, 2 * num_sites, 2)), list(range(1, 2 * num_sites, 2))
+
+    raise ValueError(
+        f"Unsupported spin_orbital_ordering='{ordering}'. Use 'blocked' or 'interleaved'."
+    )
+
+
+def _build_number_aux_ops(
+    num_sites: int,
+    mapper: JordanWignerMapper,
+    spin_orbital_ordering: str = DEFAULT_SPIN_ORBITAL_ORDERING,
+) -> dict[str, object]:
     """Build alpha/beta particle-number operators for filtered exact diagonalization."""
 
     n_spin_orbitals = 2 * num_sites
+    alpha_indices, beta_indices = _spin_orbital_index_sets(num_sites, spin_orbital_ordering)
     alpha_number = FermionicOp(
-        {f"+_{i} -_{i}": 1.0 for i in range(num_sites)},
+        {f"+_{i} -_{i}": 1.0 for i in alpha_indices},
         num_spin_orbitals=n_spin_orbitals,
     )
     beta_number = FermionicOp(
-        {f"+_{i} -_{i}": 1.0 for i in range(num_sites, n_spin_orbitals)},
+        {f"+_{i} -_{i}": 1.0 for i in beta_indices},
         num_spin_orbitals=n_spin_orbitals,
     )
     return {"N_alpha": mapper.map(alpha_number), "N_beta": mapper.map(beta_number)}
@@ -111,6 +148,7 @@ def run_hubbard_vqe(
     num_sites: int,
     hopping_t: float = 1.0,
     onsite_u: float = 4.0,
+    spin_orbital_ordering: str = DEFAULT_SPIN_ORBITAL_ORDERING,
     uccsd_reps: int = 2,
     vqe_restarts: int = 3,
     maxiter: int = 1800,
@@ -118,8 +156,20 @@ def run_hubbard_vqe(
 ) -> HubbardVQEResult:
     """Solve one lattice size with JW + VQE(UCCSD)."""
 
+    normalized_ordering = spin_orbital_ordering.strip().lower()
+    if normalized_ordering not in {"blocked", "interleaved"}:
+        raise ValueError(
+            f"Unsupported spin_orbital_ordering='{spin_orbital_ordering}'. Use 'blocked' or 'interleaved'."
+        )
+
     mapper = JordanWignerMapper()
-    qubit_hamiltonian = _build_qubit_hamiltonian(num_sites, hopping_t, onsite_u, mapper)
+    qubit_hamiltonian = _build_qubit_hamiltonian(
+        num_sites,
+        hopping_t,
+        onsite_u,
+        mapper,
+        spin_orbital_ordering=normalized_ordering,
+    )
     num_particles = _half_filled_num_particles(num_sites)
 
     hartree_fock = HartreeFock(
@@ -150,7 +200,11 @@ def run_hubbard_vqe(
             best_energy = energy
             best_restart = restart
 
-    aux_ops = _build_number_aux_ops(num_sites, mapper)
+    aux_ops = _build_number_aux_ops(
+        num_sites,
+        mapper,
+        spin_orbital_ordering=normalized_ordering,
+    )
     exact_filtered_energy = _filtered_exact_energy(qubit_hamiltonian, num_particles, aux_ops)
 
     return HubbardVQEResult(
@@ -160,6 +214,7 @@ def run_hubbard_vqe(
         vqe_energy=best_energy,
         exact_filtered_energy=exact_filtered_energy,
         best_restart=best_restart,
+        spin_orbital_ordering=normalized_ordering,
         uccsd_reps=uccsd_reps,
         uccsd_num_parameters=ansatz.num_parameters,
     )
@@ -169,11 +224,18 @@ def main() -> None:
     """Run L=2 and L=3 calculations and print a concise summary."""
 
     print("Fermi-Hubbard Ground State (Jordan-Wigner + VQE/UCCSD)", flush=True)
-    print("Parameters: t=1.0, U=4.0, open boundary, half-filling", flush=True)
+    print(
+        "Parameters: t=1.0, U=4.0, periodic boundary, half-filling, "
+        f"spin-orbital ordering={DEFAULT_SPIN_ORBITAL_ORDERING}",
+        flush=True,
+    )
     print("-" * 74, flush=True)
 
     for lattice_size in (2, 3):
-        result = run_hubbard_vqe(num_sites=lattice_size)
+        result = run_hubbard_vqe(
+            num_sites=lattice_size,
+            spin_orbital_ordering=DEFAULT_SPIN_ORBITAL_ORDERING,
+        )
         delta = result.vqe_energy - result.exact_filtered_energy
         print(
             f"L={result.lattice_sites} | qubits={result.num_qubits} | "
@@ -182,6 +244,7 @@ def main() -> None:
             f"filtered_exact={result.exact_filtered_energy:.12f} | "
             f"delta={delta:+.3e} | "
             f"best_restart={result.best_restart} | "
+            f"ordering={result.spin_orbital_ordering} | "
             f"uccsd(reps={result.uccsd_reps}, params={result.uccsd_num_parameters})",
             flush=True,
         )

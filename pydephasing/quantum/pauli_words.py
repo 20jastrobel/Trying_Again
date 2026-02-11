@@ -1,6 +1,25 @@
-from pydephasing.utilities.log import log
 from pydephasing.quantum.pauli_letters_module import PauliLetter
-from pydephasing.set_param_object import p
+try:
+    from pydephasing.utilities.log import log
+except Exception:  # pragma: no cover - local fallback when utilities package is absent
+    class _FallbackLog:
+        @staticmethod
+        def error(msg):
+            raise ValueError(msg)
+
+        @staticmethod
+        def info(msg):
+            print(msg)
+
+    log = _FallbackLog()
+
+try:
+    from pydephasing.set_param_object import p
+except Exception:  # pragma: no cover - local fallback when global params are absent
+    class _FallbackParams:
+        sep = "-" * 40
+
+    p = _FallbackParams()
 
 #
 #   This module defines the basic Pauli term entity

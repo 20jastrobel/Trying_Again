@@ -1,7 +1,26 @@
-from pydephasing.set_param_object import p
-from pydephasing.utilities.log import log
 import numpy as np
 from pydephasing.quantum.pauli_words import PauliTerm
+try:
+    from pydephasing.set_param_object import p
+except Exception:  # pragma: no cover - local fallback when global params are absent
+    class _FallbackParams:
+        sep = "-" * 40
+
+    p = _FallbackParams()
+
+try:
+    from pydephasing.utilities.log import log
+except Exception:  # pragma: no cover - local fallback when utilities package is absent
+    class _FallbackLog:
+        @staticmethod
+        def error(msg):
+            raise ValueError(msg)
+
+        @staticmethod
+        def info(msg):
+            print(msg)
+
+    log = _FallbackLog()
 
 #
 #   Pauli polynomial class definition
@@ -45,7 +64,7 @@ class PauliPolynomial:
                     pt_2 = pp.return_polynomial()[i2]
                     pt_new = pt_1 * pt_2
                     pp_new.add_term(pt_new)
-        elif isinstance(pp, (float, complex)):
+        elif isinstance(pp, (int, float, complex)):
             for i1 in range(n1):
                 pt = PauliTerm(self._pol[i1].nqubit(), pc=self._pol[i1].p_coeff*pp, pl_seq=self._pol[i1].pw)
                 pp_new.add_term(pt)
@@ -54,7 +73,7 @@ class PauliPolynomial:
         pp_new._reduce()
         return pp_new
     def __rmul__(self, other):
-        if not isinstance(other, (float, complex)):
+        if not isinstance(other, (int, float, complex)):
             return NotImplemented
         pp_new = PauliPolynomial(self._repr_mode)
         n1 = self.count_number_terms()

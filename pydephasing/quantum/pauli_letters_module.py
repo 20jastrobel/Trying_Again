@@ -1,4 +1,12 @@
-from pydephasing.utilities.log import log
+try:
+    from pydephasing.utilities.log import log
+except Exception:  # pragma: no cover - local fallback when utilities package is absent
+    class _FallbackLog:
+        @staticmethod
+        def error(msg):
+            raise ValueError(msg)
+
+    log = _FallbackLog()
 
 #
 #   Define Pauli letter class
