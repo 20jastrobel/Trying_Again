@@ -177,7 +177,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path(__file__).resolve().parent / "hubbard_jw_L2_L3_periodic_blocked.json",
+        default=Path(__file__).resolve().parent
+        / "exports"
+        / "hubbard_jw_L2_L3_periodic_blocked.json",
         help="Output JSON path.",
     )
     parser.add_argument(
