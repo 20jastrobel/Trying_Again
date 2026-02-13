@@ -1,0 +1,56 @@
+{
+  "L2": {
+    "prior_qiskit_summary": "quantum/qpe_run_summary_L2.json",
+    "hardcoded_summary": "quantum/qpe_run_summary_hardcoded_L2.json",
+    "comparison": {
+      "E_vqe_delta_hardcoded_minus_prior": -2.3546721794609482e-08,
+      "segment1_fidelity_delta": -2.5227585297105115e-05,
+      "segment1_angle_delta_rad": -1.105080435326311e-05,
+      "segment2_E_qpe_delta": 0.0,
+      "segment3_E_hpe_delta": 0.0,
+      "sector_exact_delta": 0.0,
+      "fullspace_exact_delta": 0.0
+    },
+    "hardcoded_values": {
+      "E_vqe": -0.8284271058048679,
+      "E_qpe": -0.703125,
+      "E_hpe": -0.76171875,
+      "E_exact_sector": -0.8284271247461897,
+      "fidelity": 0.9936920099157793
+    },
+    "prior_values": {
+      "E_vqe": -0.8284270822581461,
+      "E_qpe": -0.703125,
+      "E_hpe": -0.76171875,
+      "E_exact_sector": -0.8284271247461897,
+      "fidelity": 0.9937172375010764
+    }
+  },
+  "L3": {
+    "prior_qiskit_summary": "quantum/qpe_run_summary_L3.json",
+    "hardcoded_summary": "quantum/qpe_run_summary_hardcoded_L3.json",
+    "comparison": {
+      "E_vqe_delta_hardcoded_minus_prior": 3.719992871520361e-07,
+      "segment1_fidelity_delta": 1.3355850214669118e-05,
+      "segment1_angle_delta_rad": 0.00020499073301938342,
+      "segment2_E_qpe_delta": 0.0,
+      "segment3_E_hpe_delta": 0.0,
+      "sector_exact_delta": 0.0,
+      "fullspace_exact_delta": 0.0
+    },
+    "hardcoded_values": {
+      "E_vqe": -1.2749167910984351,
+      "E_qpe": -1.265625,
+      "E_hpe": -1.2609374999999998,
+      "E_exact_sector": -1.2749172176353734,
+      "fidelity": 0.9996378669597894
+    },
+    "prior_values": {
+      "E_vqe": -1.2749171630977223,
+      "E_qpe": -1.265625,
+      "E_hpe": -1.2609374999999998,
+      "E_exact_sector": -1.2749172176353734,
+      "fidelity": 0.9996245111095747
+    }
+  }
+}
