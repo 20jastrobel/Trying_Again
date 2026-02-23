@@ -1,0 +1,221 @@
+{
+  "generated_utc": "2026-02-21T19:01:40.314119+00:00",
+  "results": [
+    {
+      "L": 2,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": [
+          -0.25,
+          0.25
+        ],
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 3.460266321210434,
+          "ansatz_len": 1,
+          "delta_e": 3.460266321210434,
+          "details": {
+            "final_var_h": 6.922467472348748,
+            "outer_iters": 1,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 12,
+            "stop_reason": null
+          },
+          "elapsed_s": 0.5988049157895148,
+          "energy": 2.624209203055253,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 0.6438289235614246,
+          "ansatz_len": 1,
+          "delta_e": 0.6438289235614246,
+          "details": {
+            "final_var_h": 1.0980214455313253,
+            "outer_iters": 1,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 3,
+            "stop_reason": null
+          },
+          "elapsed_s": 0.5728875421918929,
+          "energy": -0.19222819459375617,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -0.8360571181551808,
+          "exact_energy": -0.8360571181551808,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 1.492458254759299e-07,
+          "ansatz_len": 6,
+          "delta_e": 1.492458254759299e-07,
+          "details": {
+            "best_restart": 0,
+            "message": "Optimization terminated successfully",
+            "nfev": 90,
+            "nit": 12,
+            "num_parameters": 6,
+            "success": true
+          },
+          "elapsed_s": 0.07615604205057025,
+          "energy": -0.8360569689093553,
+          "exact_energy": -0.8360571181551808,
+          "method": "hardcoded_vqe"
+        },
+        "qiskit_vqe": {
+          "abs_delta_e": 5.599896102381763e-10,
+          "ansatz_len": 6,
+          "delta_e": 5.599896102381763e-10,
+          "details": {
+            "best_restart": 0,
+            "effective_maxiter": 200,
+            "method": "qiskit_vqe_uccsd",
+            "nfev": 99,
+            "nit": 13,
+            "num_parameters": 6,
+            "success": true
+          },
+          "elapsed_s": 4.278081458993256,
+          "energy": -0.8360571175951912,
+          "exact_energy": -0.8360571181551808,
+          "method": "qiskit_vqe"
+        }
+      },
+      "n_down": 1,
+      "n_up": 1
+    },
+    {
+      "L": 3,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": null,
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 4.394596993096256,
+          "ansatz_len": 1,
+          "delta_e": 4.394596993096256,
+          "details": {
+            "final_var_h": 1.5217754291579908,
+            "outer_iters": 1,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 15,
+            "stop_reason": "budget:max_time_s"
+          },
+          "elapsed_s": 1.3156306659802794,
+          "energy": 3.158529015596467,
+          "exact_energy": -1.2360679774997887,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 5.236067977499789,
+          "ansatz_len": 1,
+          "delta_e": 5.236067977499789,
+          "details": {
+            "final_var_h": null,
+            "outer_iters": 0,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 8,
+            "stop_reason": "budget:max_time_s"
+          },
+          "elapsed_s": 1.1078756670467556,
+          "energy": 4.0,
+          "exact_energy": -1.2360679774997887,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -1.2360679774997887,
+          "exact_energy": -1.2360679774997887,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 1.3347045135780888e-07,
+          "ansatz_len": 16,
+          "delta_e": 1.3347045135780888e-07,
+          "details": {
+            "best_restart": 0,
+            "message": "Optimization terminated successfully",
+            "nfev": 337,
+            "nit": 19,
+            "num_parameters": 16,
+            "success": true
+          },
+          "elapsed_s": 4.288457916118205,
+          "energy": -1.2360678440293373,
+          "exact_energy": -1.2360679774997887,
+          "method": "hardcoded_vqe"
+        },
+        "qiskit_vqe": {
+          "abs_delta_e": 3.7953849174598986e-08,
+          "ansatz_len": 16,
+          "delta_e": 3.7953849174598986e-08,
+          "details": {
+            "best_restart": 0,
+            "effective_maxiter": 200,
+            "method": "qiskit_vqe_uccsd",
+            "nfev": 373,
+            "nit": 21,
+            "num_parameters": 16,
+            "success": true
+          },
+          "elapsed_s": 75.76558725023642,
+          "energy": -1.2360679395459395,
+          "exact_energy": -1.2360679774997887,
+          "method": "qiskit_vqe"
+        }
+      },
+      "n_down": 1,
+      "n_up": 2
+    }
+  ],
+  "settings": {
+    "adapt_eps_energy": 1e-08,
+    "adapt_eps_grad": 1e-06,
+    "adapt_inner_steps": 1,
+    "adapt_lbfgs_restarts": 1,
+    "adapt_max_depth": 1,
+    "adapt_max_time_s": 1.0,
+    "adapt_seed": 7,
+    "boundary": "open",
+    "dv": 0.5,
+    "n_down": null,
+    "n_up": null,
+    "odd_policy": "min_sz",
+    "ordering": "blocked",
+    "sites": [
+      2,
+      3
+    ],
+    "t": 1.0,
+    "u": 4.0,
+    "vqe_maxiter": 200,
+    "vqe_reps": 2,
+    "vqe_restarts": 1,
+    "vqe_seed": 7
+  }
+}

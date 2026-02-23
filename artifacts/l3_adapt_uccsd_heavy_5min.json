@@ -1,0 +1,22 @@
+{
+  "L": 3,
+  "abs_delta_e": 0.2665077428010326,
+  "ansatz_len": 5,
+  "config": {
+    "allow_repeats": true,
+    "grouped_trotter_order": 2,
+    "grouped_trotter_reps": 2,
+    "inner_steps": 300,
+    "lbfgs_restarts": 4,
+    "max_depth": 32,
+    "max_time_s": 300.0,
+    "pool_mode": "hardcoded_uccsd_onzots",
+    "seed": 19
+  },
+  "delta_e": 0.2665077428010326,
+  "elapsed_s": 300.07610166678205,
+  "energy": -0.9695602346987561,
+  "exact_sector": -1.2360679774997887,
+  "stop_reason": "budget:max_time_s",
+  "timestamp": "2026-02-19 13:12:09"
+}

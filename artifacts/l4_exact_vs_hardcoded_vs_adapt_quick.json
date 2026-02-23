@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "L": 4,
+    "t": 1.0,
+    "u": 2.0,
+    "ordering": "blocked",
+    "num_particles": {
+      "n_up": 2,
+      "n_down": 2
+    }
+  },
+  "exact_energy": -2.8759428090050623,
+  "hardcoded": {
+    "energy": -2.7647746702964495,
+    "gap_to_exact": 0.11116813870861275,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "nfev": 1879,
+    "nit": 69
+  },
+  "adapt": {
+    "energy": -0.5268251381932941,
+    "gap_to_exact": 2.349117670811768,
+    "gap_to_hardcoded": 2.2379495321031553,
+    "depth": 4,
+    "stop_reason": "budget:max_time_s",
+    "t_total_s": 180.21013783290982,
+    "varH_last": 1.965883968784743
+  }
+}

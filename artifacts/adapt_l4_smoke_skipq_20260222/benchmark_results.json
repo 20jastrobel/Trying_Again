@@ -1,0 +1,107 @@
+{
+  "generated_utc": "2026-02-22T05:11:11.786878+00:00",
+  "results": [
+    {
+      "L": 4,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": null,
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 8.192278937276814,
+          "ansatz_len": 1,
+          "delta_e": 8.192278937276814,
+          "details": {
+            "final_var_h": 6.402512801178396,
+            "outer_iters": 1,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 22,
+            "stop_reason": null
+          },
+          "elapsed_s": 2.580008374992758,
+          "energy": 6.239133628592262,
+          "exact_energy": -1.9531453086845523,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 5.719492508713705,
+          "ansatz_len": 1,
+          "delta_e": 5.719492508713705,
+          "details": {
+            "final_var_h": 2.8834763284562435,
+            "outer_iters": 1,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 26,
+            "stop_reason": null
+          },
+          "elapsed_s": 7.482728791888803,
+          "energy": 3.766347200029152,
+          "exact_energy": -1.9531453086845523,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -1.9531453086845523,
+          "exact_energy": -1.9531453086845523,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 1.267536691644589,
+          "ansatz_len": 26,
+          "delta_e": 1.267536691644589,
+          "details": {
+            "best_restart": 0,
+            "message": "Iteration limit reached",
+            "nfev": 310,
+            "nit": 10,
+            "num_parameters": 26,
+            "success": false
+          },
+          "elapsed_s": 13.042400625068694,
+          "energy": -0.6856086170399635,
+          "exact_energy": -1.9531453086845523,
+          "method": "hardcoded_vqe"
+        }
+      },
+      "n_down": 2,
+      "n_up": 2
+    }
+  ],
+  "settings": {
+    "adapt_allow_repeats": true,
+    "adapt_eps_energy": 1e-08,
+    "adapt_eps_grad": 1e-06,
+    "adapt_inner_steps": 1,
+    "adapt_lbfgs_restarts": 1,
+    "adapt_max_depth": 1,
+    "adapt_max_time_s": 30.0,
+    "adapt_seed": 7,
+    "boundary": "open",
+    "dv": 0.5,
+    "include_qiskit_vqe": false,
+    "n_down": null,
+    "n_up": null,
+    "odd_policy": "min_sz",
+    "ordering": "blocked",
+    "sites": [
+      4
+    ],
+    "t": 1.0,
+    "u": 4.0,
+    "vqe_maxiter": 10,
+    "vqe_reps": 1,
+    "vqe_restarts": 1,
+    "vqe_seed": 7
+  }
+}

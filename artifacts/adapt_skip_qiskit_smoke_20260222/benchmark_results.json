@@ -1,0 +1,110 @@
+{
+  "generated_utc": "2026-02-22T05:09:33.898263+00:00",
+  "results": [
+    {
+      "L": 2,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": [
+          -0.25,
+          0.25
+        ],
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 0.3297441474617765,
+          "ansatz_len": 2,
+          "delta_e": 0.3297441474617765,
+          "details": {
+            "final_var_h": 0.25635362444491044,
+            "outer_iters": 2,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 12,
+            "stop_reason": null
+          },
+          "elapsed_s": 0.8942154590040445,
+          "energy": -0.5063129706934043,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 0.3297441474614543,
+          "ansatz_len": 2,
+          "delta_e": 0.3297441474614543,
+          "details": {
+            "final_var_h": 0.2563520115368586,
+            "outer_iters": 2,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 3,
+            "stop_reason": null
+          },
+          "elapsed_s": 0.6566943749785423,
+          "energy": -0.5063129706937265,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -0.8360571181551808,
+          "exact_energy": -0.8360571181551808,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 0.3813641358471187,
+          "ansatz_len": 3,
+          "delta_e": 0.3813641358471187,
+          "details": {
+            "best_restart": 0,
+            "message": "Optimization terminated successfully",
+            "nfev": 37,
+            "nit": 9,
+            "num_parameters": 3,
+            "success": true
+          },
+          "elapsed_s": 0.014993667136877775,
+          "energy": -0.4546929823080621,
+          "exact_energy": -0.8360571181551808,
+          "method": "hardcoded_vqe"
+        }
+      },
+      "n_down": 1,
+      "n_up": 1
+    }
+  ],
+  "settings": {
+    "adapt_allow_repeats": true,
+    "adapt_eps_energy": 1e-08,
+    "adapt_eps_grad": 1e-06,
+    "adapt_inner_steps": 20,
+    "adapt_lbfgs_restarts": 1,
+    "adapt_max_depth": 2,
+    "adapt_max_time_s": 30.0,
+    "adapt_seed": 7,
+    "boundary": "open",
+    "dv": 0.5,
+    "include_qiskit_vqe": false,
+    "n_down": null,
+    "n_up": null,
+    "odd_policy": "min_sz",
+    "ordering": "blocked",
+    "sites": [
+      2
+    ],
+    "t": 1.0,
+    "u": 4.0,
+    "vqe_maxiter": 40,
+    "vqe_reps": 1,
+    "vqe_restarts": 1,
+    "vqe_seed": 7
+  }
+}

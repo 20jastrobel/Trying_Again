@@ -1,0 +1,26 @@
+{
+  "abs_delta_e": 4.196877300599653,
+  "ansatz_len": 4,
+  "config": {
+    "allow_repeats": true,
+    "eps_energy": 1e-12,
+    "eps_grad": 1e-10,
+    "grouped_trotter_order": 2,
+    "grouped_trotter_reps": 2,
+    "inner_fd_eps": 1e-07,
+    "inner_steps": 500,
+    "lbfgs_restarts": 8,
+    "max_depth": 24,
+    "max_time_s": 300.0,
+    "name": "bounded_repeats_order2_reps2",
+    "seed": 17,
+    "theta_bound": "pi"
+  },
+  "delta_e": 4.196877300599653,
+  "elapsed_s": 300.17087270878255,
+  "energy": 2.9608093230998644,
+  "exact_sector": -1.2360679774997887,
+  "final_var_h": 1.1980604789210227,
+  "pool_size": 8,
+  "stop_reason": "budget:max_time_s"
+}

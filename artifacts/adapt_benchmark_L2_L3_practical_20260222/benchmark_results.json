@@ -1,0 +1,222 @@
+{
+  "generated_utc": "2026-02-22T02:23:21.810380+00:00",
+  "results": [
+    {
+      "L": 2,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": [
+          -0.25,
+          0.25
+        ],
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 0.3297441474617765,
+          "ansatz_len": 3,
+          "delta_e": 0.3297441474617765,
+          "details": {
+            "final_var_h": 0.25635362444491044,
+            "outer_iters": 3,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 12,
+            "stop_reason": "eps_energy"
+          },
+          "elapsed_s": 1.837520125322044,
+          "energy": -0.5063129706934043,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 2.609024107869118e-14,
+          "ansatz_len": 4,
+          "delta_e": 2.609024107869118e-14,
+          "details": {
+            "final_var_h": 1.325606291402437e-13,
+            "outer_iters": 4,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 3,
+            "stop_reason": "eps_grad"
+          },
+          "elapsed_s": 9.990399207919836,
+          "energy": -0.8360571181551547,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -0.8360571181551808,
+          "exact_energy": -0.8360571181551808,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 1.4926001434822922e-07,
+          "ansatz_len": 6,
+          "delta_e": 1.4926001434822922e-07,
+          "details": {
+            "best_restart": 0,
+            "message": "Optimization terminated successfully",
+            "nfev": 90,
+            "nit": 12,
+            "num_parameters": 6,
+            "success": true
+          },
+          "elapsed_s": 0.038212749641388655,
+          "energy": -0.8360569688951665,
+          "exact_energy": -0.8360571181551808,
+          "method": "hardcoded_vqe"
+        },
+        "qiskit_vqe": {
+          "abs_delta_e": 5.588224327723879e-10,
+          "ansatz_len": 6,
+          "delta_e": 5.588224327723879e-10,
+          "details": {
+            "best_restart": 0,
+            "effective_maxiter": 1000,
+            "method": "qiskit_vqe_uccsd",
+            "nfev": 99,
+            "nit": 13,
+            "num_parameters": 6,
+            "success": true
+          },
+          "elapsed_s": 1.500174209009856,
+          "energy": -0.8360571175963584,
+          "exact_energy": -0.8360571181551808,
+          "method": "qiskit_vqe"
+        }
+      },
+      "n_down": 1,
+      "n_up": 1
+    },
+    {
+      "L": 3,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": null,
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 0.27135574604160473,
+          "ansatz_len": 5,
+          "delta_e": 0.27135574604160473,
+          "details": {
+            "final_var_h": 0.4719684533945333,
+            "outer_iters": 5,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 15,
+            "stop_reason": "eps_energy"
+          },
+          "elapsed_s": 14.93910774961114,
+          "energy": -0.964712231458184,
+          "exact_energy": -1.2360679774997887,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 0.2600804112186552,
+          "ansatz_len": 6,
+          "delta_e": 0.2600804112186552,
+          "details": {
+            "final_var_h": 0.4035378079993436,
+            "outer_iters": 6,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 8,
+            "stop_reason": null
+          },
+          "elapsed_s": 48.86033850023523,
+          "energy": -0.9759875662811335,
+          "exact_energy": -1.2360679774997887,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -1.2360679774997887,
+          "exact_energy": -1.2360679774997887,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 1.3328135950452236e-07,
+          "ansatz_len": 16,
+          "delta_e": 1.3328135950452236e-07,
+          "details": {
+            "best_restart": 0,
+            "message": "Optimization terminated successfully",
+            "nfev": 337,
+            "nit": 19,
+            "num_parameters": 16,
+            "success": true
+          },
+          "elapsed_s": 1.6049875421449542,
+          "energy": -1.2360678442184292,
+          "exact_energy": -1.2360679774997887,
+          "method": "hardcoded_vqe"
+        },
+        "qiskit_vqe": {
+          "abs_delta_e": 3.79381421833358e-08,
+          "ansatz_len": 16,
+          "delta_e": 3.79381421833358e-08,
+          "details": {
+            "best_restart": 0,
+            "effective_maxiter": 1000,
+            "method": "qiskit_vqe_uccsd",
+            "nfev": 373,
+            "nit": 21,
+            "num_parameters": 16,
+            "success": true
+          },
+          "elapsed_s": 32.86229158286005,
+          "energy": -1.2360679395616465,
+          "exact_energy": -1.2360679774997887,
+          "method": "qiskit_vqe"
+        }
+      },
+      "n_down": 1,
+      "n_up": 2
+    }
+  ],
+  "settings": {
+    "adapt_allow_repeats": true,
+    "adapt_eps_energy": 1e-08,
+    "adapt_eps_grad": 1e-06,
+    "adapt_inner_steps": 80,
+    "adapt_lbfgs_restarts": 1,
+    "adapt_max_depth": 6,
+    "adapt_max_time_s": 1200.0,
+    "adapt_seed": 7,
+    "boundary": "open",
+    "dv": 0.5,
+    "n_down": null,
+    "n_up": null,
+    "odd_policy": "min_sz",
+    "ordering": "blocked",
+    "sites": [
+      2,
+      3
+    ],
+    "t": 1.0,
+    "u": 4.0,
+    "vqe_maxiter": 1000,
+    "vqe_reps": 2,
+    "vqe_restarts": 1,
+    "vqe_seed": 7
+  }
+}

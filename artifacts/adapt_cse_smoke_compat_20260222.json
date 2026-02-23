@@ -1,0 +1,29 @@
+{
+  "abs_delta_e": 0.3297441474617757,
+  "adapt_allow_repeats": true,
+  "ansatz_len": 2,
+  "budget": {
+    "budget_k": null,
+    "enabled": false,
+    "max_circuits_executed": null,
+    "max_pauli_terms_measured": null,
+    "max_time_s": null
+  },
+  "delta_e": 0.3297441474617757,
+  "energy": -0.5063129706934051,
+  "exact_sector": -0.8360571181551808,
+  "ham_params": {
+    "dv": 0.5,
+    "t": 1.0,
+    "u": 4.0
+  },
+  "method": "adapt_cse_hybrid",
+  "n_down": 1,
+  "n_up": 1,
+  "operators": [
+    "gamma_im(+_0 -_1)",
+    "gamma_im(+_2 -_3)"
+  ],
+  "sites": 2,
+  "stop_reason": null
+}

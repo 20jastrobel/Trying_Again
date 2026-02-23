@@ -1,0 +1,59 @@
+{
+  "settings": {
+    "L": 4,
+    "t": 1.0,
+    "u": 2.0,
+    "ordering": "blocked",
+    "num_particles": {
+      "n_up": 2,
+      "n_down": 2
+    }
+  },
+  "exact": {
+    "sector_energy_canonical": -2.875942809005056,
+    "sector_energy_qubit_crosscheck": -2.8759428090050623
+  },
+  "hardcoded_vqe": {
+    "energy": -2.7647746702964495,
+    "gap_to_exact": 0.11116813870860653,
+    "best_restart": 1,
+    "nfev": 1879,
+    "nit": 69,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "num_parameters": 26
+  },
+  "adapt_fixed_sequence": {
+    "energy": -2.7647746004675464,
+    "gap_to_exact": 0.11116820853750964,
+    "gap_to_hardcoded": 6.982890310425205e-08,
+    "stop_reason": "fixed_sequence_complete",
+    "n_ops": 26,
+    "diagnostics": {
+      "grouped_term_order": "canonical_sorted",
+      "debug_semantics": {
+        "n_trials": 3,
+        "seed": 11,
+        "theta_std": 0.3,
+        "grouped_term_order": "canonical_sorted",
+        "grouped_trotter_order": 1,
+        "grouped_trotter_reps": 1,
+        "grouped_generator_scale": 1.0,
+        "reference_fidelity": 1.0,
+        "min_fidelity": 0.999999999999988,
+        "mean_fidelity": 0.9999999999999942,
+        "failing_trial": 0
+      },
+      "t_total_s": 62149.07713929191
+    }
+  },
+  "adapt": {
+    "energy": -0.8675640238058666,
+    "gap_to_exact": 2.0083787851991897,
+    "gap_to_hardcoded": 1.897210646490583,
+    "stop_reason": "budget:max_time_s",
+    "depth": 7,
+    "t_total_s": 600.8163176667877,
+    "varH_last": 1.5245708748582762
+  }
+}

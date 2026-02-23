@@ -1,0 +1,14 @@
+{
+  "L": 3,
+  "abs_delta_e": 0.72199526735841,
+  "ansatz_len": 6,
+  "delta_e": 0.72199526735841,
+  "elapsed_s": 300.0665516667068,
+  "energy": -0.5140727101413787,
+  "exact_sector": -1.2360679774997887,
+  "final_var_h": 1.0593405157565867,
+  "pool_mode": "hardcoded_uccsd_onzots",
+  "stop_reason": "budget:max_time_s",
+  "time_cap_s": 300.0,
+  "timestamp": "2026-02-19 10:09:26"
+}

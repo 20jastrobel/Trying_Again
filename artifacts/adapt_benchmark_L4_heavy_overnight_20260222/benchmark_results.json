@@ -1,0 +1,107 @@
+{
+  "generated_utc": "2026-02-22T15:15:17.803654+00:00",
+  "results": [
+    {
+      "L": 4,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": null,
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 0.5188240543030813,
+          "ansatz_len": 8,
+          "delta_e": 0.5188240543030813,
+          "details": {
+            "final_var_h": 0.7156430719622775,
+            "outer_iters": 8,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 22,
+            "stop_reason": "eps_grad"
+          },
+          "elapsed_s": 291.1623055418022,
+          "energy": -1.434321254381471,
+          "exact_energy": -1.9531453086845523,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 0.3849990812394224,
+          "ansatz_len": 17,
+          "delta_e": 0.3849990812394224,
+          "details": {
+            "final_var_h": 0.7110453212114081,
+            "outer_iters": 17,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 26,
+            "stop_reason": "budget:max_time_s"
+          },
+          "elapsed_s": 14122.010506374761,
+          "energy": -1.5681462274451299,
+          "exact_energy": -1.9531453086845523,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -1.9531453086845523,
+          "exact_energy": -1.9531453086845523,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 7.355108693207768e-07,
+          "ansatz_len": 52,
+          "delta_e": 7.355108693207768e-07,
+          "details": {
+            "best_restart": 0,
+            "message": "Optimization terminated successfully",
+            "nfev": 2847,
+            "nit": 53,
+            "num_parameters": 52,
+            "success": true
+          },
+          "elapsed_s": 214.16090937471017,
+          "energy": -1.953144573173683,
+          "exact_energy": -1.9531453086845523,
+          "method": "hardcoded_vqe"
+        }
+      },
+      "n_down": 2,
+      "n_up": 2
+    }
+  ],
+  "settings": {
+    "adapt_allow_repeats": true,
+    "adapt_eps_energy": 1e-08,
+    "adapt_eps_grad": 1e-06,
+    "adapt_inner_steps": 120,
+    "adapt_lbfgs_restarts": 1,
+    "adapt_max_depth": 23,
+    "adapt_max_time_s": 12000.0,
+    "adapt_seed": 7,
+    "boundary": "open",
+    "dv": 0.5,
+    "include_qiskit_vqe": false,
+    "n_down": null,
+    "n_up": null,
+    "odd_policy": "min_sz",
+    "ordering": "blocked",
+    "sites": [
+      4
+    ],
+    "t": 1.0,
+    "u": 4.0,
+    "vqe_maxiter": 1000,
+    "vqe_reps": 2,
+    "vqe_restarts": 1,
+    "vqe_seed": 7
+  }
+}

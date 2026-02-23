@@ -1,0 +1,22 @@
+{
+  "settings": {
+    "L": 4,
+    "t": 1.0,
+    "u": 2.0,
+    "ordering": "blocked",
+    "n_up": 2,
+    "n_down": 2
+  },
+  "exact_sector_energy": -2.8759428090050623,
+  "hardcoded_reference_energy": -2.7589387957551037,
+  "hardcoded_reference_gap_to_exact": 0.11700401324995857,
+  "adapt": {
+    "energy": 1.2837219068350916,
+    "gap_to_exact": 4.159664715840154,
+    "gap_to_hardcoded": 4.0426607025901955,
+    "depth": 6,
+    "stop_reason": "budget:max_time_s",
+    "t_total_s": 602.752513458021,
+    "varH_last": 1.7573430718568939
+  }
+}

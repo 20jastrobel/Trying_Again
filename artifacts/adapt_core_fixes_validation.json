@@ -1,0 +1,61 @@
+{
+  "test1": {
+    "passed": true,
+    "data": {
+      "n_trials": 10,
+      "seed": 0,
+      "theta_std": 0.3,
+      "grouped_term_order": "canonical_sorted",
+      "grouped_trotter_order": 1,
+      "grouped_trotter_reps": 1,
+      "grouped_generator_scale": 1.0,
+      "reference_fidelity": 1.0,
+      "min_fidelity": 0.9999999999999964,
+      "mean_fidelity": 0.9999999999999997,
+      "failing_trial": 0
+    }
+  },
+  "test2": {
+    "passed": true,
+    "data": {
+      "hf_err": 0.4999999999588666,
+      "rand_err": 0.4999999999684178,
+      "bug_confirmed": true
+    }
+  },
+  "test3": {
+    "passed": true,
+    "data": {
+      "e_exact": -1.8200893743747866,
+      "e_canon": -1.816757758084247,
+      "e_fixseq": -1.816757827716266,
+      "diff": 6.963201881760028e-08,
+      "VarH": 0.012972834594117355
+    }
+  },
+  "test4": {
+    "passed": true,
+    "data": {
+      "e_exact": -2.8759428090050623,
+      "e_adapt": -0.10724312018119647,
+      "gap_ad": 2.7686996888238657,
+      "depth": 4,
+      "VarH_ad": 2.3010320618103277,
+      "stop": null,
+      "energies": [
+        1.5857864441699323,
+        1.0000005993757115,
+        0.16000224757329717,
+        -0.10724312018119647
+      ],
+      "drops": [
+        2.4142135558300675,
+        0.5857858447942208,
+        0.8399983518024143,
+        0.26724536775449365
+      ],
+      "monotonic": true,
+      "decreased_from_hf": true
+    }
+  }
+}

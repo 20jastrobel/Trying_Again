@@ -1,0 +1,5 @@
+touch: /Users/jakestrobel/.config/envman/PATH.env: Operation not permitted
+touch: /Users/jakestrobel/.config/envman/ENV.env: Operation not permitted
+touch: /Users/jakestrobel/.config/envman/alias.env: Operation not permitted
+touch: /Users/jakestrobel/.config/envman/function.sh: Operation not permitted
+start

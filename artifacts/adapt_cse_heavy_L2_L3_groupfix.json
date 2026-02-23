@@ -1,0 +1,58 @@
+{
+  "results": [
+    {
+      "L": 2,
+      "abs_delta_e": 0.32974414746112457,
+      "ansatz_len": 3,
+      "config": {
+        "eps_energy": 1e-10,
+        "eps_grad": 1e-08,
+        "grouped_trotter_order": 1,
+        "grouped_trotter_reps": 1,
+        "inner_steps": 500,
+        "lbfgs_restarts": 8,
+        "max_depth": 28,
+        "max_time_s": 300,
+        "theta_init_noise": 0.0001
+      },
+      "delta_e": 0.32974414746112457,
+      "elapsed_s": 15.342846292071044,
+      "energy": -0.5063129706940562,
+      "exact_sector": -0.8360571181551808,
+      "final_var_h": 0.2563528595850521,
+      "n_down": 1,
+      "n_up": 1,
+      "name": "L2_grouped_o1_r1",
+      "status": "ok",
+      "stop_reason": "eps_energy"
+    },
+    {
+      "L": 3,
+      "abs_delta_e": 0.2713557460382543,
+      "ansatz_len": 5,
+      "config": {
+        "eps_energy": 1e-09,
+        "eps_grad": 1e-07,
+        "grouped_trotter_order": 1,
+        "grouped_trotter_reps": 1,
+        "inner_steps": 350,
+        "lbfgs_restarts": 6,
+        "max_depth": 24,
+        "max_time_s": 300,
+        "theta_init_noise": 0.0001
+      },
+      "delta_e": 0.2713557460382543,
+      "elapsed_s": 164.69840404111892,
+      "energy": -0.9647122314615344,
+      "exact_sector": -1.2360679774997887,
+      "final_var_h": 0.47197154262666896,
+      "n_down": 1,
+      "n_up": 2,
+      "name": "L3_grouped_o1_r1",
+      "status": "ok",
+      "stop_reason": "eps_energy"
+    }
+  ],
+  "script": "inline heavy ADAPT-CSE run (bounded)",
+  "timestamp": "2026-02-19 08:24:52"
+}

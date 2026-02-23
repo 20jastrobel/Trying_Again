@@ -1,0 +1,20 @@
+[
+  {
+    "L": 2,
+    "exact": -0.8360571181551808,
+    "energy": -0.8360571181551547,
+    "abs_delta_e": 2.609024107869118e-14,
+    "ansatz_len": 4,
+    "stop_reason": "eps_grad",
+    "elapsed_s": 33.14953937521204
+  },
+  {
+    "L": 3,
+    "exact": -1.2360679774997887,
+    "energy": -0.9759875662811335,
+    "abs_delta_e": 0.2600804112186552,
+    "ansatz_len": 6,
+    "stop_reason": "budget:max_time_s",
+    "elapsed_s": 114.63283558283001
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "settings": {
+    "L": 4,
+    "t": 1.0,
+    "u": 2.0,
+    "ordering": "blocked",
+    "n_up": 2,
+    "n_down": 2
+  },
+  "exact_sector_energy": -2.8759428090050623,
+  "hardcoded_reference_energy": -2.7589387957551037,
+  "hardcoded_reference_gap_to_exact": 0.11700401324995857,
+  "runs": {
+    "fixed_sequence_heavy": {
+      "energy": 0.2682541331790904,
+      "gap_to_exact": 3.144196942184153,
+      "gap_to_hardcoded_ref": 3.027192928934194,
+      "depth": 26,
+      "stop_reason": "budget:max_time_s",
+      "varH_last": null,
+      "t_total_s": 304.44570804201066,
+      "wall_s": 304.4458298329264
+    },
+    "adapt_maxgrad_heavy": {
+      "energy": 1.2993114032820139,
+      "gap_to_exact": 4.175254212287076,
+      "gap_to_hardcoded_ref": 4.058250199037118,
+      "depth": 4,
+      "stop_reason": "budget:max_time_s",
+      "varH_last": 1.965883968784743,
+      "t_total_s": 300.094671708066,
+      "wall_s": 300.0949388332665
+    },
+    "adapt_lookahead_heavy": {
+      "energy": 5.0690359909566496e-08,
+      "gap_to_exact": 2.875942859695422,
+      "gap_to_hardcoded_ref": 2.7589388464454636,
+      "depth": 3,
+      "stop_reason": "budget:max_time_s",
+      "varH_last": 2.000063087617927,
+      "t_total_s": 300.1049469159916,
+      "wall_s": 300.1077674590051
+    }
+  }
+}

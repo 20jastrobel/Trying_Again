@@ -1,0 +1,22 @@
+{
+  "L": 3,
+  "abs_delta_e": 1.1262760947892034,
+  "config": {
+    "cap_s": 300.0,
+    "fd_eps": 0.001,
+    "max_steps": 400,
+    "optimizer": "adam_fd",
+    "sequence": "canonical_hardcoded_uccsd_order",
+    "trotter_order": 2,
+    "trotter_reps": 2
+  },
+  "delta_e": 1.1262760947892034,
+  "elapsed_s": 301.7638904172927,
+  "energy": -0.10979188271058526,
+  "exact_sector": -1.2360679774997887,
+  "nfev": 289,
+  "num_parameters": 8,
+  "steps_done": 16,
+  "stop_reason": "budget:max_time_s",
+  "timestamp": "2026-02-19 13:31:24"
+}

@@ -1,0 +1,126 @@
+{
+  "generated_utc": "2026-02-21T19:23:14.754924+00:00",
+  "results": [
+    {
+      "L": 2,
+      "hamiltonian": {
+        "boundary": "open",
+        "dv_cli": 0.5,
+        "ordering": "blocked",
+        "site_potential": [
+          -0.25,
+          0.25
+        ],
+        "t": 1.0,
+        "u": 4.0
+      },
+      "methods": {
+        "adapt_cse": {
+          "abs_delta_e": 0.32974414746112735,
+          "ansatz_len": 3,
+          "delta_e": 0.32974414746112735,
+          "details": {
+            "final_var_h": 0.25635257979407966,
+            "outer_iters": 3,
+            "pool_mode": "cse_density_ops",
+            "pool_size": 12,
+            "stop_reason": "eps_energy"
+          },
+          "elapsed_s": 14.812023458071053,
+          "energy": -0.5063129706940535,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_cse"
+        },
+        "adapt_uccsd": {
+          "abs_delta_e": 0.3281206102197398,
+          "ansatz_len": 3,
+          "delta_e": 0.3281206102197398,
+          "details": {
+            "final_var_h": 0.25799923645415584,
+            "outer_iters": 3,
+            "pool_mode": "hardcoded_uccsd_onzots",
+            "pool_size": 3,
+            "stop_reason": "pool_exhausted"
+          },
+          "elapsed_s": 27.798696334008127,
+          "energy": -0.507936507935441,
+          "exact_energy": -0.8360571181551808,
+          "method": "adapt_uccsd"
+        },
+        "exact": {
+          "abs_delta_e": 0.0,
+          "ansatz_len": 0,
+          "delta_e": 0.0,
+          "details": {
+            "note": "sector-filtered exact energy"
+          },
+          "elapsed_s": 0.0,
+          "energy": -0.8360571181551808,
+          "exact_energy": -0.8360571181551808,
+          "method": "exact"
+        },
+        "hardcoded_vqe": {
+          "abs_delta_e": 9.900382735850144e-09,
+          "ansatz_len": 6,
+          "delta_e": 9.900382735850144e-09,
+          "details": {
+            "best_restart": 1,
+            "message": "Optimization terminated successfully",
+            "nfev": 76,
+            "nit": 10,
+            "num_parameters": 6,
+            "success": true
+          },
+          "elapsed_s": 0.17583554238080978,
+          "energy": -0.8360571082547981,
+          "exact_energy": -0.8360571181551808,
+          "method": "hardcoded_vqe"
+        },
+        "qiskit_vqe": {
+          "abs_delta_e": 5.599896102381763e-10,
+          "ansatz_len": 6,
+          "delta_e": 5.599896102381763e-10,
+          "details": {
+            "best_restart": 0,
+            "effective_maxiter": 600,
+            "method": "qiskit_vqe_uccsd",
+            "nfev": 99,
+            "nit": 13,
+            "num_parameters": 6,
+            "success": true
+          },
+          "elapsed_s": 10.367436124943197,
+          "energy": -0.8360571175951912,
+          "exact_energy": -0.8360571181551808,
+          "method": "qiskit_vqe"
+        }
+      },
+      "n_down": 1,
+      "n_up": 1
+    }
+  ],
+  "settings": {
+    "adapt_eps_energy": 1e-08,
+    "adapt_eps_grad": 1e-06,
+    "adapt_inner_steps": 600,
+    "adapt_lbfgs_restarts": 3,
+    "adapt_max_depth": 12,
+    "adapt_max_time_s": 180.0,
+    "adapt_seed": 7,
+    "boundary": "open",
+    "dv": 0.5,
+    "n_down": null,
+    "n_up": null,
+    "odd_policy": "min_sz",
+    "ordering": "blocked",
+    "sites": [
+      2
+    ],
+    "t": 1.0,
+    "u": 4.0,
+    "vqe_maxiter": 600,
+    "vqe_reps": 2,
+    "vqe_restarts": 3,
+    "vqe_seed": 7
+  }
+}
