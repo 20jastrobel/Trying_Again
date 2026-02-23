@@ -1,0 +1,5 @@
+method,energy,delta_vs_exact
+Exact (sector),-0.8284271247461902,0.0
+VQE (hardcoded),-0.8284271058048679,1.894132228841272e-08
+QPE (phase-unwrapped),-0.703125,0.12530212474619018
+HPE (scaled),-0.76171875,0.06670837474619018

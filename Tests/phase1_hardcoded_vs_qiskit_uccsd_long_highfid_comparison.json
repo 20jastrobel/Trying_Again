@@ -1,0 +1,163 @@
+{
+  "generated_utc": "2026-02-13T03:59:42.069647+00:00",
+  "description": "Phase 1 strict parameter-locked comparison: hardcoded UCCSD VQE + hardcoded Suzuki dynamics vs Qiskit built-in UCCSD VQE + built-in dynamics.",
+  "phase": "phase1_parameter_lock_execution_accuracy_comparison",
+  "parameter_lock": {
+    "values": {
+      "num_sites": 2,
+      "hopping_t": 1.0,
+      "onsite_u": 4.0,
+      "dv": 0.0,
+      "boundary": "periodic",
+      "spin_orbital_ordering": "blocked",
+      "time_grid": {
+        "t_final": 20.0,
+        "num_times": 401,
+        "dt": 0.05
+      },
+      "product_formula": {
+        "suzuki_order": 2,
+        "trotter_steps": 128
+      },
+      "qiskit_ansatz": {
+        "style": "UCCSD",
+        "uccsd_reps": 2,
+        "vqe_restarts": 3,
+        "vqe_maxiter": 1800,
+        "vqe_seed": 7
+      },
+      "hardcoded_ansatz": {
+        "style": "HardcodedUCCSDAnsatz",
+        "uccsd_reps": 2,
+        "include_singles": true,
+        "include_doubles": true,
+        "vqe_restarts": 3,
+        "vqe_maxiter": 1800,
+        "vqe_seed": 7
+      },
+      "backend_assumptions": {
+        "qiskit": "noiseless statevector primitives and MatrixExponential exact reference",
+        "hardcoded": "noiseless numpy statevector with spectral exact reference"
+      }
+    },
+    "source_files": [
+      "hubbard_dimer_suzuki_trotter_uccsd_long_highfid_results.json",
+      "hubbard_dimer_suzuki_trotter_standalone.py",
+      "quantum_test/vqe_latex_python_pairs_test.ipynb",
+      "quantum_test/hubbard_latex_python_pairs.py"
+    ]
+  },
+  "inputs": {
+    "qiskit_run1_json": "phase1_qiskit_builtin_long_highfid_results_run1.json",
+    "qiskit_run2_json": "phase1_qiskit_builtin_long_highfid_results_run2.json",
+    "hardcoded_run1_json": "phase1_hardcoded_uccsd_long_highfid_results_run1.json",
+    "hardcoded_run2_json": "phase1_hardcoded_uccsd_long_highfid_results_run2.json"
+  },
+  "ground_state_energy": {
+    "hardcoded": -0.8284271244759291,
+    "qiskit": -0.8284271225878117,
+    "abs_delta": 1.888117440174142e-09,
+    "rel_delta_vs_qiskit": 2.2791593716488982e-09
+  },
+  "trajectory_deltas": {
+    "fidelity": {
+      "max_abs_delta": 0.0012495881131556752,
+      "mean_abs_delta": 0.00013204162418834652,
+      "max_rel_delta_vs_qiskit": 0.0012495909758195422,
+      "final_abs_delta": 0.0009375264311782816
+    },
+    "state_l2_error": {
+      "max_abs_delta": 1.999307714498057,
+      "mean_abs_delta": 1.1475992474034573,
+      "max_rel_delta_vs_qiskit": 4407657.329897398,
+      "final_abs_delta": 1.1283510829551309
+    },
+    "energy_exact": {
+      "max_abs_delta": 1.8881313179619497e-09,
+      "mean_abs_delta": 1.8881151989633227e-09,
+      "max_rel_delta_vs_qiskit": 2.2791761236207578e-09,
+      "final_abs_delta": 1.8881166630180246e-09
+    },
+    "energy_trotter": {
+      "max_abs_delta": 0.004366135756725731,
+      "mean_abs_delta": 0.00042011160791030156,
+      "max_rel_delta_vs_qiskit": 0.005270474613600086,
+      "final_abs_delta": 0.0026531628655438455
+    },
+    "n_up_site0_exact": {
+      "max_abs_delta": 2.788070032500034e-05,
+      "mean_abs_delta": 1.413194201766442e-05,
+      "max_rel_delta_vs_qiskit": 5.5756885363989966e-05,
+      "final_abs_delta": 9.256923821587826e-06
+    },
+    "n_up_site0_trotter": {
+      "max_abs_delta": 0.019650880162140505,
+      "mean_abs_delta": 0.0029964769398828786,
+      "max_rel_delta_vs_qiskit": 0.03929859404883599,
+      "final_abs_delta": 0.012396552039465158
+    },
+    "n_dn_site0_exact": {
+      "max_abs_delta": 2.796641157232216e-05,
+      "mean_abs_delta": 1.4089206170928659e-05,
+      "max_rel_delta_vs_qiskit": 5.592827815672952e-05,
+      "final_abs_delta": 1.8433413866980608e-05
+    },
+    "n_dn_site0_trotter": {
+      "max_abs_delta": 0.029873468383012913,
+      "mean_abs_delta": 0.0059218083573096625,
+      "max_rel_delta_vs_qiskit": 0.05975149663068292,
+      "final_abs_delta": 0.025238052872371908
+    },
+    "doublon_exact": {
+      "max_abs_delta": 3.632230107519785e-07,
+      "mean_abs_delta": 2.3157815199042406e-07,
+      "max_rel_delta_vs_qiskit": 2.480228212066789e-06,
+      "final_abs_delta": 3.629034408259013e-07
+    },
+    "doublon_trotter": {
+      "max_abs_delta": 0.004391465063808525,
+      "mean_abs_delta": 0.0008297610273078524,
+      "max_rel_delta_vs_qiskit": 0.033774959530708845,
+      "final_abs_delta": 0.0013319325112020053
+    }
+  },
+  "runtime_summary": {
+    "qiskit_run1_real_s": 78.76,
+    "qiskit_run2_real_s": 80.05,
+    "hardcoded_run1_real_s": 10.56,
+    "hardcoded_run2_real_s": 10.53,
+    "qiskit_mean_real_s": 79.405,
+    "hardcoded_mean_real_s": 10.545,
+    "speedup_hardcoded_vs_qiskit": 7.530109056424846,
+    "hardcoded_vqe_run1_s": 0.5503697078675032,
+    "hardcoded_dynamics_run1_s": 9.823860917240381
+  },
+  "reproducibility": {
+    "qiskit": {
+      "label": "qiskit_builtin",
+      "settings_equal": true,
+      "num_time_points": 401,
+      "max_abs_summary_metric_delta": 0.0,
+      "max_abs_fidelity_delta_over_time": 0.0,
+      "max_abs_energy_trotter_delta_over_time": 0.0
+    },
+    "hardcoded": {
+      "label": "hardcoded_uccsd",
+      "settings_equal": true,
+      "num_time_points": 401,
+      "max_abs_summary_metric_delta": 0.0,
+      "max_abs_fidelity_delta_over_time": 0.0,
+      "max_abs_energy_trotter_delta_over_time": 0.0
+    }
+  },
+  "diagnosis": {
+    "material_difference": true,
+    "material_flags": {
+      "gs_energy_abs_delta_gt_1e-6": false,
+      "fidelity_max_abs_delta_gt_1e-4": true,
+      "energy_trotter_max_abs_delta_gt_1e-4": true,
+      "doublon_trotter_max_abs_delta_gt_1e-4": true
+    },
+    "short_text": "Differences are material for strict apples-to-apples dynamics: hardcoded and Qiskit runs use very similar but not identical VQE initial states and different evolution backends, which produces visible divergence in fidelity/L2 and observable traces over long-time evolution."
+  }
+}

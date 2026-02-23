@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2026-02-11T22:47:12.621632Z",
+  "description": "L=4 proper Qiskit UCCSD long-run result with wall-time bounded optimization callback",
+  "source": "interactive run in workspace terminal",
+  "model": {
+    "num_sites": 4,
+    "hopping_t": 1.0,
+    "onsite_u": 4.0,
+    "boundary_condition": "periodic",
+    "spin_orbital_ordering": "blocked",
+    "num_particles": [
+      2,
+      2
+    ]
+  },
+  "qiskit_vqe_config": {
+    "ansatz": "UCCSD",
+    "initial_state": "HartreeFock",
+    "optimizer": "SLSQP",
+    "ansatz_reps": 2,
+    "maxiter": 2200,
+    "initial_point_seed": 7,
+    "walltime_limit_s": 900
+  },
+  "results": {
+    "stopped_early": true,
+    "optimizer_evals": 649,
+    "best_vqe_energy_observed": -1.6981962214900943,
+    "final_vqe_energy": null,
+    "exact_filtered_energy": -2.102748483462073,
+    "abs_error_best": 0.4045522619719788,
+    "runtime_s": 901.2400369644165
+  }
+}

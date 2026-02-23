@@ -1,0 +1,53 @@
+{
+  "timestamp_utc": "2026-02-11T18:56:56Z",
+  "hardcoded_config": {
+    "t": 1.0,
+    "U": 4.0,
+    "indexing": "blocked",
+    "pbc": true,
+    "reps": 2,
+    "restarts": 3,
+    "maxiter": 1800,
+    "seed": 7
+  },
+  "results": [
+    {
+      "lattice_sites": 2,
+      "num_qubits": 4,
+      "num_particles": [
+        1,
+        1
+      ],
+      "hardcoded_vqe_energy": -0.8284271058048679,
+      "hardcoded_exact_sector_energy": -0.8284271247461902,
+      "hardcoded_delta": 1.894132228841272e-08,
+      "hardcoded_best_restart": 1,
+      "hardcoded_success": true,
+      "hardcoded_nfev": 205,
+      "hardcoded_nit": 21,
+      "hardcoded_ansatz_reps": 2,
+      "hardcoded_num_parameters": 8,
+      "hardcoded_runtime_s": 0.6269914172589779,
+      "hf_bitstring": "0101"
+    },
+    {
+      "lattice_sites": 3,
+      "num_qubits": 6,
+      "num_particles": [
+        2,
+        1
+      ],
+      "hardcoded_vqe_energy": -1.2749167910984351,
+      "hardcoded_exact_sector_energy": -1.2749172176353751,
+      "hardcoded_delta": 4.265369399902852e-07,
+      "hardcoded_best_restart": 1,
+      "hardcoded_success": true,
+      "hardcoded_nfev": 918,
+      "hardcoded_nit": 47,
+      "hardcoded_ansatz_reps": 2,
+      "hardcoded_num_parameters": 18,
+      "hardcoded_runtime_s": 9.344068249687552,
+      "hf_bitstring": "001011"
+    }
+  ]
+}

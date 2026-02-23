@@ -1,0 +1,205 @@
+{
+  "cases": {
+    "L=4": {
+      "metadata": {
+        "L": 4,
+        "U": 4.0,
+        "boundary_condition": "periodic",
+        "coefficient_tolerance": 1e-12,
+        "constant_shift_identity": 4.0,
+        "edge_set": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "indexing": {
+          "name": "blocked",
+          "pauli_string_qubit_order": "left_to_right = q_(n-1) ... q_0",
+          "spin_orbital_order_before_jw": [
+            "alpha0",
+            "alpha1",
+            "alpha2",
+            "alpha3",
+            "beta0",
+            "beta1",
+            "beta2",
+            "beta3"
+          ]
+        },
+        "num_pauli_terms": 29,
+        "num_qubits": 8,
+        "particle_sector": {
+          "balanced_spin_sectors_for_comparison": [
+            [
+              2,
+              2
+            ]
+          ],
+          "constraint": "N_alpha + N_beta = L",
+          "filling": "half",
+          "total_particles": 4
+        },
+        "t": 1.0
+      },
+      "pauli_terms": {
+        "IIIIIIII": 4.0,
+        "IIIIIIIZ": -1.0,
+        "IIIIIIXX": -0.5,
+        "IIIIIIYY": -0.5,
+        "IIIIIIZI": -1.0,
+        "IIIIIXXI": -0.5,
+        "IIIIIYYI": -0.5,
+        "IIIIIZII": -1.0,
+        "IIIIXXII": -0.5,
+        "IIIIXZZX": -0.5,
+        "IIIIYYII": -0.5,
+        "IIIIYZZY": -0.5,
+        "IIIIZIII": -1.0,
+        "IIIZIIII": -1.0,
+        "IIIZIIIZ": 1.0,
+        "IIXXIIII": -0.5,
+        "IIYYIIII": -0.5,
+        "IIZIIIII": -1.0,
+        "IIZIIIZI": 1.0,
+        "IXXIIIII": -0.5,
+        "IYYIIIII": -0.5,
+        "IZIIIIII": -1.0,
+        "IZIIIZII": 1.0,
+        "XXIIIIII": -0.5,
+        "XZZXIIII": -0.5,
+        "YYIIIIII": -0.5,
+        "YZZYIIII": -0.5,
+        "ZIIIIIII": -1.0,
+        "ZIIIZIII": 1.0
+      }
+    },
+    "L=5": {
+      "metadata": {
+        "L": 5,
+        "U": 4.0,
+        "boundary_condition": "periodic",
+        "coefficient_tolerance": 1e-12,
+        "constant_shift_identity": 5.0,
+        "edge_set": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "indexing": {
+          "name": "blocked",
+          "pauli_string_qubit_order": "left_to_right = q_(n-1) ... q_0",
+          "spin_orbital_order_before_jw": [
+            "alpha0",
+            "alpha1",
+            "alpha2",
+            "alpha3",
+            "alpha4",
+            "beta0",
+            "beta1",
+            "beta2",
+            "beta3",
+            "beta4"
+          ]
+        },
+        "num_pauli_terms": 36,
+        "num_qubits": 10,
+        "particle_sector": {
+          "balanced_spin_sectors_for_comparison": [
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "constraint": "N_alpha + N_beta = L",
+          "filling": "half",
+          "total_particles": 5
+        },
+        "t": 1.0
+      },
+      "pauli_terms": {
+        "IIIIIIIIII": 5.0,
+        "IIIIIIIIIZ": -1.0,
+        "IIIIIIIIXX": -0.5,
+        "IIIIIIIIYY": -0.5,
+        "IIIIIIIIZI": -1.0,
+        "IIIIIIIXXI": -0.5,
+        "IIIIIIIYYI": -0.5,
+        "IIIIIIIZII": -1.0,
+        "IIIIIIXXII": -0.5,
+        "IIIIIIYYII": -0.5,
+        "IIIIIIZIII": -1.0,
+        "IIIIIXXIII": -0.5,
+        "IIIIIXZZZX": -0.5,
+        "IIIIIYYIII": -0.5,
+        "IIIIIYZZZY": -0.5,
+        "IIIIIZIIII": -1.0,
+        "IIIIZIIIII": -1.0,
+        "IIIIZIIIIZ": 1.0,
+        "IIIXXIIIII": -0.5,
+        "IIIYYIIIII": -0.5,
+        "IIIZIIIIII": -1.0,
+        "IIIZIIIIZI": 1.0,
+        "IIXXIIIIII": -0.5,
+        "IIYYIIIIII": -0.5,
+        "IIZIIIIIII": -1.0,
+        "IIZIIIIZII": 1.0,
+        "IXXIIIIIII": -0.5,
+        "IYYIIIIIII": -0.5,
+        "IZIIIIIIII": -1.0,
+        "IZIIIIZIII": 1.0,
+        "XXIIIIIIII": -0.5,
+        "XZZZXIIIII": -0.5,
+        "YYIIIIIIII": -0.5,
+        "YZZZYIIIII": -0.5,
+        "ZIIIIIIIII": -1.0,
+        "ZIIIIZIIII": 1.0
+      }
+    }
+  },
+  "description": "1D Fermi-Hubbard JW Hamiltonians",
+  "parameters": {
+    "U": 4.0,
+    "boundary_condition": "periodic",
+    "coefficient_tolerance": 1e-12,
+    "indexing": "blocked",
+    "lattice_sizes": [
+      4,
+      5
+    ],
+    "t": 1.0
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "description": "Qiskit Nature Fermi-Hubbard Hamiltonian and JW-mapped qubit Hamiltonian metadata/results.",
+  "source": {
+    "script": "Tests/Hubbard_VQE_Qiskit.py",
+    "notebook": "Tests/Hubbard_VQE_Qiskit.ipynb"
+  },
+  "generated_utc": "2026-02-11T17:06:48.933344+00:00",
+  "settings": {
+    "model": {
+      "hamiltonian_form": "H = sum_{<i,j>,sigma} t_{ij} c^dagger_{i,sigma} c_{j,sigma} + U sum_i n_{i,up} n_{i,down}",
+      "t_hopping": 1.0,
+      "u_onsite": 4.0,
+      "boundary_condition": "periodic",
+      "filling": "half",
+      "lattice_family": "LineLattice",
+      "lattice_sizes": [
+        2,
+        3
+      ]
+    },
+    "mapping": {
+      "fermion_to_qubit": "JordanWignerMapper",
+      "spin_orbital_ordering": "blocked",
+      "term_pruning_tolerance": 1e-12
+    }
+  },
+  "lattice_results": [
+    {
+      "L": 2,
+      "num_sites": 2,
+      "num_spin_orbitals": 4,
+      "num_qubits": 4,
+      "boundary_condition": "periodic",
+      "half_filling_particles": {
+        "n_alpha": 1,
+        "n_beta": 1
+      },
+      "spin_orbital_ordering": "blocked",
+      "alpha_spin_orbital_indices": [
+        0,
+        1
+      ],
+      "beta_spin_orbital_indices": [
+        2,
+        3
+      ],
+      "interleaved_to_blocked_permutation": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "lattice_edges_nonzero": [
+        {
+          "from": 0,
+          "to": 1,
+          "weight": -1.0
+        }
+      ],
+      "fermionic_hamiltonian": {
+        "term_count": 6,
+        "terms": {
+          "+_0 -_0 +_2 -_2": 4.0,
+          "+_0 -_1": -1.0,
+          "+_1 -_1 +_3 -_3": 4.0,
+          "+_2 -_3": -1.0,
+          "-_0 +_1": 1.0,
+          "-_2 +_3": 1.0
+        }
+      },
+      "qubit_hamiltonian_jw": {
+        "term_count": 11,
+        "identity_coefficient": 2.0,
+        "l1_coefficient_norm": 10.0,
+        "frobenius_norm": 13.2664991614216,
+        "spectral_norm": 8.0,
+        "terms": {
+          "IIII": 2.0,
+          "IIIZ": -1.0,
+          "IIXX": -0.5,
+          "IIYY": -0.5,
+          "IIZI": -1.0,
+          "IZII": -1.0,
+          "IZIZ": 1.0,
+          "XXII": -0.5,
+          "YYII": -0.5,
+          "ZIII": -1.0,
+          "ZIZI": 1.0
+        }
+      },
+      "vqe": {
+        "estimator": "StatevectorEstimator",
+        "optimizer": "SLSQP",
+        "optimizer_maxiter": 1800,
+        "restarts": 3,
+        "seed": 7,
+        "initial_point_stddev": 0.3,
+        "ansatz": "UCCSD",
+        "ansatz_reps": 2,
+        "ansatz_num_parameters": 6,
+        "best_restart": 1,
+        "ground_energy_vqe": -0.8284271225858459
+      },
+      "exact_filtered": {
+        "solver": "NumPyMinimumEigensolver(filter_criterion in particle sector)",
+        "ground_energy_exact": -0.8284271247461897
+      },
+      "comparison": {
+        "absolute_error": 2.160343792745323e-09,
+        "delta_vqe_minus_exact": 2.160343792745323e-09
+      }
+    },
+    {
+      "L": 3,
+      "num_sites": 3,
+      "num_spin_orbitals": 6,
+      "num_qubits": 6,
+      "boundary_condition": "periodic",
+      "half_filling_particles": {
+        "n_alpha": 2,
+        "n_beta": 1
+      },
+      "spin_orbital_ordering": "blocked",
+      "alpha_spin_orbital_indices": [
+        0,
+        1,
+        2
+      ],
+      "beta_spin_orbital_indices": [
+        3,
+        4,
+        5
+      ],
+      "interleaved_to_blocked_permutation": [
+        0,
+        3,
+        1,
+        4,
+        2,
+        5
+      ],
+      "lattice_edges_nonzero": [
+        {
+          "from": 0,
+          "to": 1,
+          "weight": -1.0
+        },
+        {
+          "from": 0,
+          "to": 2,
+          "weight": -1.0
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "weight": -1.0
+        }
+      ],
+      "fermionic_hamiltonian": {
+        "term_count": 15,
+        "terms": {
+          "+_0 -_0 +_3 -_3": 4.0,
+          "+_0 -_1": -1.0,
+          "+_0 -_2": -1.0,
+          "+_1 -_1 +_4 -_4": 4.0,
+          "+_1 -_2": -1.0,
+          "+_2 -_2 +_5 -_5": 4.0,
+          "+_3 -_4": -1.0,
+          "+_3 -_5": -1.0,
+          "+_4 -_5": -1.0,
+          "-_0 +_1": 1.0,
+          "-_0 +_2": 1.0,
+          "-_1 +_2": 1.0,
+          "-_3 +_4": 1.0,
+          "-_3 +_5": 1.0,
+          "-_4 +_5": 1.0
+        }
+      },
+      "qubit_hamiltonian_jw": {
+        "term_count": 22,
+        "identity_coefficient": 3.0,
+        "l1_coefficient_norm": 18.0,
+        "frobenius_norm": 36.66060555964672,
+        "spectral_norm": 12.0,
+        "terms": {
+          "IIIIII": 3.0,
+          "IIIIIZ": -1.0,
+          "IIIIXX": -0.5,
+          "IIIIYY": -0.5,
+          "IIIIZI": -1.0,
+          "IIIXXI": -0.5,
+          "IIIXZX": -0.5,
+          "IIIYYI": -0.5,
+          "IIIYZY": -0.5,
+          "IIIZII": -1.0,
+          "IIZIII": -1.0,
+          "IIZIIZ": 1.0,
+          "IXXIII": -0.5,
+          "IYYIII": -0.5,
+          "IZIIII": -1.0,
+          "IZIIZI": 1.0,
+          "XXIIII": -0.5,
+          "XZXIII": -0.5,
+          "YYIIII": -0.5,
+          "YZYIII": -0.5,
+          "ZIIIII": -1.0,
+          "ZIIZII": 1.0
+        }
+      },
+      "vqe": {
+        "estimator": "StatevectorEstimator",
+        "optimizer": "SLSQP",
+        "optimizer_maxiter": 1800,
+        "restarts": 3,
+        "seed": 7,
+        "initial_point_stddev": 0.3,
+        "ansatz": "UCCSD",
+        "ansatz_reps": 2,
+        "ansatz_num_parameters": 16,
+        "best_restart": 0,
+        "ground_energy_vqe": -1.2749171630977223
+      },
+      "exact_filtered": {
+        "solver": "NumPyMinimumEigensolver(filter_criterion in particle sector)",
+        "ground_energy_exact": -1.2749172176353734
+      },
+      "comparison": {
+        "absolute_error": 5.4537651061892234e-08,
+        "delta_vqe_minus_exact": 5.4537651061892234e-08
+      }
+    }
+  ]
+}

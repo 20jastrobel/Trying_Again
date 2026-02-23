@@ -1,0 +1,55 @@
+{
+  "generated_at_utc": "2026-02-11T23:51:42.775156+00:00",
+  "source_notebook": "pydephasing/quantum/qpe_hard_coded_latex_python_pairs.ipynb",
+  "backend": {
+    "use_aer": false,
+    "sampler": "StatevectorSampler",
+    "shots": 4096,
+    "seed": 1234
+  },
+  "config": {
+    "L": 4,
+    "t": 1.0,
+    "U": 4.0,
+    "indexing": "blocked",
+    "pbc": true,
+    "reps": 2,
+    "restarts": 3,
+    "maxiter": 1800,
+    "num_qubits": 8,
+    "num_particles": {
+      "n_up": 2,
+      "n_dn": 2
+    }
+  },
+  "segment1": {
+    "pauli_sum_bound_B": 24.0,
+    "evolution_time_t": 0.1308996938995747,
+    "overlap_real": 0.9674772165451907,
+    "overlap_imag": 0.23003938742480032,
+    "fidelity": 0.9889302843008074,
+    "overlap_phase_rad": 0.2334376477321438
+  },
+  "segment2_qpe": {
+    "m_eval_qubits": 8,
+    "phi_qpe": 0.04296875,
+    "theta_qpe_rad": 0.2699806186678728,
+    "theta_qpe_pm_rad": 0.2699806186678728,
+    "E_from_qpe": -2.0625,
+    "delta_qpe_minus_vqe": -0.2506091568221933
+  },
+  "segment3_hpe": {
+    "bound_B_hpe": 24.240000000000002,
+    "phi_hpe": 0.875,
+    "E_hpe": -2.0600000000000005,
+    "E_manual": -2.0600000000000005,
+    "id_coeff": 4.0,
+    "delta_hpe_minus_vqe": -0.2481091568221938
+  },
+  "reference": {
+    "E_vqe": -1.8118908431778067,
+    "E_exact_sector": -2.102748483462071,
+    "delta_vqe_minus_exact_sector": 0.2908576402842642,
+    "delta_hpe_minus_exact_sector": 0.042748483462070386
+  }
+}
